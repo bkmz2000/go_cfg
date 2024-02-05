@@ -1,0 +1,135 @@
+digraph cfg {
+	rankdir=TB
+	"NodeType.FuncEnd+5" [label="end fact" shape=trapezium]
+	"NodeType.Decl+4" [label="return fact(n-1)*n" shape=box]
+	"NodeType.Decl+4" -> "NodeType.FuncEnd+5" [headport=n tailport=s]
+	"NodeType.Decl+3" [label="return 1" shape=box]
+	"NodeType.Decl+3" -> "NodeType.Decl+4" [headport=n tailport=s]
+	"NodeType.IfThen+2" [label="n<2" shape=diamond]
+	"NodeType.IfThen+2" -> "NodeType.Decl+3" [color=green headport=n tailport=w]
+	"NodeType.IfThen+2" -> "NodeType.Decl+4" [color=red headport=n tailport=e]
+	"NodeType.FuncBegin+1" [label="begin fact" shape=trapezium]
+	"NodeType.FuncBegin+1" -> "NodeType.IfThen+2" [headport=n tailport=s]
+	"NodeType.Assign+13" [label="x += 10 
+" shape=box]
+	"NodeType.Assign+13" -> "NodeType.For+9" [headport=n tailport=s]
+	"NodeType.Assign+12" [label="x += 10 
+" shape=box]
+	"NodeType.Assign+12" -> "NodeType.Assign+13" [headport=n tailport=s]
+	"NodeType.Assign+14" [label="x -= 10 
+" shape=box]
+	"NodeType.Assign+14" -> "NodeType.For+9" [headport=n tailport=s]
+	"NodeType.IfThen+11" [label="x==10" shape=diamond]
+	"NodeType.IfThen+11" -> "NodeType.Assign+12" [color=green headport=n tailport=w]
+	"NodeType.IfThen+11" -> "NodeType.Assign+14" [color=red headport=n tailport=e]
+	"NodeType.Assign+10" [label="x = 20 
+" shape=box]
+	"NodeType.Assign+10" -> "NodeType.IfThen+11" [headport=n tailport=s]
+	"NodeType.FuncEnd+15" [label="end for_and_if" shape=trapezium]
+	"NodeType.For+9" [label=cond shape=egg]
+	"NodeType.For+9" -> "NodeType.Assign+10" [color=green constraint=false headport=nw tailport=w]
+	"NodeType.For+9" -> "NodeType.FuncEnd+15" [color=red headport=n tailport=s]
+	"NodeType.Decl+8" [label="var err = \"error\" 
+" shape=box]
+	"NodeType.Decl+8" -> "NodeType.For+9" [headport=n tailport=s]
+	"NodeType.Decl+7" [label="var x int = 10 
+" shape=box]
+	"NodeType.Decl+7" -> "NodeType.Decl+8" [headport=n tailport=s]
+	"NodeType.FuncBegin+6" [label="begin for_and_if" shape=trapezium]
+	"NodeType.FuncBegin+6" -> "NodeType.Decl+7" [headport=n tailport=s]
+	"NodeType.FuncEnd+27" [label="end conplex_if" shape=trapezium]
+	"NodeType.Assign+25" [label="x += 10 
+" shape=box]
+	"NodeType.Assign+25" -> "NodeType.FuncEnd+27" [headport=n tailport=s]
+	"NodeType.IfThen+24" [label="x==10" shape=diamond]
+	"NodeType.IfThen+24" -> "NodeType.Assign+25" [color=green headport=n tailport=w]
+	"NodeType.IfThen+24" -> "NodeType.FuncEnd+27" [color=red headport=n tailport=e]
+	"NodeType.Assign+23" [label="x = 5 
+" shape=box]
+	"NodeType.Assign+23" -> "NodeType.IfThen+24" [headport=n tailport=s]
+	"NodeType.Assign+21" [label="x += 10 
+" shape=box]
+	"NodeType.Assign+21" -> "NodeType.Assign+23" [headport=n tailport=s]
+	"NodeType.Assign+22" [label="x -= 10 
+" shape=box]
+	"NodeType.Assign+22" -> "NodeType.Assign+23" [headport=n tailport=s]
+	"NodeType.IfThen+20" [label="x==10" shape=diamond]
+	"NodeType.IfThen+20" -> "NodeType.Assign+21" [color=green headport=n tailport=w]
+	"NodeType.IfThen+20" -> "NodeType.Assign+22" [color=red headport=n tailport=e]
+	"NodeType.Assign+26" [label="err = \"ok\" 
+" shape=box]
+	"NodeType.Assign+26" -> "NodeType.FuncEnd+27" [headport=n tailport=s]
+	"NodeType.IfThen+19" [label="x>0" shape=diamond]
+	"NodeType.IfThen+19" -> "NodeType.IfThen+20" [color=green headport=n tailport=w]
+	"NodeType.IfThen+19" -> "NodeType.Assign+26" [color=red headport=n tailport=e]
+	"NodeType.Decl+18" [label="var err = \"error\" 
+" shape=box]
+	"NodeType.Decl+18" -> "NodeType.IfThen+19" [headport=n tailport=s]
+	"NodeType.Decl+17" [label="var x int = 10 
+" shape=box]
+	"NodeType.Decl+17" -> "NodeType.Decl+18" [headport=n tailport=s]
+	"NodeType.FuncBegin+16" [label="begin conplex_if" shape=trapezium]
+	"NodeType.FuncBegin+16" -> "NodeType.Decl+17" [headport=n tailport=s]
+	"NodeType.Assign+35" [label="x += 10 
+" shape=box]
+	"NodeType.Assign+35" -> "NodeType.For+31" [headport=n tailport=s]
+	"NodeType.Assign+34" [label="x += 10 
+" shape=box]
+	"NodeType.Assign+34" -> "NodeType.Assign+35" [headport=n tailport=s]
+	"NodeType.Assign+36" [label="x -= 10 
+" shape=box]
+	"NodeType.Assign+36" -> "NodeType.For+31" [headport=n tailport=s]
+	"NodeType.IfThen+33" [label="x==10" shape=diamond]
+	"NodeType.IfThen+33" -> "NodeType.Assign+34" [color=green headport=n tailport=w]
+	"NodeType.IfThen+33" -> "NodeType.Assign+36" [color=red headport=n tailport=e]
+	"NodeType.Assign+32" [label="x = 20 
+" shape=box]
+	"NodeType.Assign+32" -> "NodeType.IfThen+33" [headport=n tailport=s]
+	"NodeType.Assign+43" [label="x = 5 
+" shape=box]
+	"NodeType.Assign+43" -> "NodeType.For+39" [headport=n tailport=s]
+	"NodeType.Assign+41" [label="x += 10 
+" shape=box]
+	"NodeType.Assign+41" -> "NodeType.Assign+43" [headport=n tailport=s]
+	"NodeType.Assign+42" [label="x -= 10 
+" shape=box]
+	"NodeType.Assign+42" -> "NodeType.Assign+43" [headport=n tailport=s]
+	"NodeType.IfThen+40" [label="x==10" shape=diamond]
+	"NodeType.IfThen+40" -> "NodeType.Assign+41" [color=green headport=n tailport=w]
+	"NodeType.IfThen+40" -> "NodeType.Assign+42" [color=red headport=n tailport=e]
+	"NodeType.Assign+45" [label="x += 10 
+" shape=box]
+	"NodeType.Assign+45" -> "NodeType.For+38" [headport=n tailport=s]
+	"NodeType.IfThen+44" [label="x==10" shape=diamond]
+	"NodeType.IfThen+44" -> "NodeType.Assign+45" [color=green headport=n tailport=w]
+	"NodeType.IfThen+44" -> "NodeType.For+38" [color=red headport=n tailport=e]
+	"NodeType.For+39" [label="i:=0;i<10;i++" shape=egg]
+	"NodeType.For+39" -> "NodeType.IfThen+40" [color=green constraint=false headport=nw tailport=w]
+	"NodeType.For+39" -> "NodeType.IfThen+44" [color=red headport=n tailport=s]
+	"NodeType.FuncEnd+47" [label="end fors_ad_ifs" shape=trapezium]
+	"NodeType.For+38" [label=true shape=egg]
+	"NodeType.For+38" -> "NodeType.For+39" [color=green constraint=false headport=nw tailport=w]
+	"NodeType.For+38" -> "NodeType.FuncEnd+47" [color=red headport=n tailport=s]
+	"NodeType.Assign+46" [label="err = \"ok\" 
+" shape=box]
+	"NodeType.Assign+46" -> "NodeType.FuncEnd+47" [headport=n tailport=s]
+	"NodeType.IfThen+37" [label="x>0" shape=diamond]
+	"NodeType.IfThen+37" -> "NodeType.For+38" [color=green headport=n tailport=w]
+	"NodeType.IfThen+37" -> "NodeType.Assign+46" [color=red headport=n tailport=e]
+	"NodeType.For+31" [label=cond shape=egg]
+	"NodeType.For+31" -> "NodeType.Assign+32" [color=green constraint=false headport=nw tailport=w]
+	"NodeType.For+31" -> "NodeType.IfThen+37" [color=red headport=n tailport=s]
+	"NodeType.Decl+30" [label="var err = \"error\" 
+" shape=box]
+	"NodeType.Decl+30" -> "NodeType.For+31" [headport=n tailport=s]
+	"NodeType.Decl+29" [label="var x int = 10 
+" shape=box]
+	"NodeType.Decl+29" -> "NodeType.Decl+30" [headport=n tailport=s]
+	"NodeType.FuncBegin+28" [label="begin fors_ad_ifs" shape=trapezium]
+	"NodeType.FuncBegin+28" -> "NodeType.Decl+29" [headport=n tailport=s]
+	"NodeType.FuncEnd+50" [label="end main" shape=trapezium]
+	"NodeType.Decl+49" [label="for_and_if()" shape=box]
+	"NodeType.Decl+49" -> "NodeType.FuncEnd+50" [headport=n tailport=s]
+	"NodeType.FuncBegin+48" [label="begin main" shape=trapezium]
+	"NodeType.FuncBegin+48" -> "NodeType.Decl+49" [headport=n tailport=s]
+}
