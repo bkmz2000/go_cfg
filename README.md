@@ -1,5 +1,5 @@
 # Basic
-This is a prototype for a program that generates a сап for a given golang program. 
+This is a prototype for a program that generates a cfg for a given golang program. 
 Implemented using python, graphviz and ANTLR
 
 # Example
